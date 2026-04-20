@@ -45,21 +45,21 @@ function Contact() {
           </p>
 
           <div className="contact-links">
-            <a href="mailto:vaibhavagnihotri@email.com" className="contact-link-item">
+            <a href="mailto:vaibhavagnihotri1911@gmail.com" className="contact-link-item">
               <div className="contact-link-icon">✉</div>
               <div>
                 <div className="contact-link-label">Email</div>
-                <div className="contact-link-value">vaibhavagnihotri@gmail.com</div>
+                <div className="contact-link-value">vaibhavagnihotri1911@gmail.com</div>
               </div>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="contact-link-item">
+            <a href="https://www.linkedin.com/in/vaibhav-agnihotri-34aa4b308/" target="_blank" rel="noreferrer" className="contact-link-item">
               <div className="contact-link-icon">in</div>
               <div>
                 <div className="contact-link-label">LinkedIn</div>
                 <div className="contact-link-value">Vaibhav Agnihotri</div>
               </div>
             </a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="contact-link-item">
+            <a href="https://github.com/vaibhavagnihotri1911-sketch" target="_blank" rel="noreferrer" className="contact-link-item">
               <div className="contact-link-icon">gh</div>
               <div>
                 <div className="contact-link-label">GitHub</div>
