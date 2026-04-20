@@ -83,7 +83,7 @@ function Contact() {
       {/* RIGHT — form */}
       <div className="rightcontact">
         <div className="contact-form-wrap">
-          <form action="https://formspree.io/f/xpwzrvpo" method="POST">
+          <form action="https://formspree.io/f/xbdqkkzl" method="POST">
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="name">Name</label>
