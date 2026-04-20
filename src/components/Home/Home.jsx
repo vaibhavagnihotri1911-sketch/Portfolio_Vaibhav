@@ -134,16 +134,24 @@ function Home() {
             </div>
 
             <div className="btn-group">
-              <Link to="contact" smooth={true} duration={500}>
-                <button className="btn-primary">
-                  <span>Hire Me</span>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </button>
-              </Link>
-              <Link to="projects" smooth={true} duration={500}>
-                <button className="btn-secondary">View Projects</button>
-              </Link>
-            </div>
+  <Link to="contact" smooth={true} duration={500}>
+    <button className="btn-primary">
+      <span>Hire Me</span>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <line x1="5" y1="12" x2="19" y2="12"/>
+        <polyline points="12 5 19 12 12 19"/>
+      </svg>
+    </button>
+  </Link>
+
+  <Link to="projects" smooth={true} duration={500}>
+    <button className="btn-secondary">View Projects</button>
+  </Link>
+
+  <a href="/resume.pdf" download>
+    <button className="btn-secondary">Resume</button>
+  </a>
+</div>
 
             <div className="home-stats">
               <div className="stat-item">
