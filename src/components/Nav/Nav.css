@@ -1,0 +1,260 @@
+/* =========================================
+   NAVBAR + LIGHT MODE VARIABLES
+   ========================================= */
+
+/* Light mode overrides */
+[data-theme="light"] {
+  --bg-primary: #faf7f2;
+  --bg-secondary: #f2ece0;
+  --bg-card: #ffffff;
+  --cream: #1a1208;
+  --cream-dim: #4a3e28;
+  --text-muted: #8a7a60;
+  --border: rgba(180, 120, 30, 0.2);
+  --gold: #b8741a;
+  --gold-light: #c8853a;
+  --gold-glow: rgba(180, 120, 30, 0.2);
+}
+
+[data-theme="light"] body {
+  background-color: var(--bg-primary);
+}
+
+[data-theme="light"] nav {
+  background: rgba(250, 247, 242, 0.85) !important;
+  border-bottom-color: rgba(180, 120, 30, 0.12) !important;
+}
+
+[data-theme="light"] .mobilemenu {
+  background: rgba(250, 247, 242, 0.97);
+}
+
+nav {
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6vw;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background: transparent;
+  transition: background 0.4s ease, border-color 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+
+nav.nav-scrolled {
+  background: rgba(5, 8, 15, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(200, 149, 58, 0.1);
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: baseline;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-logo-va {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--cream);
+  line-height: 1;
+}
+
+.nav-logo-dot {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  margin-left: 1px;
+}
+
+/* Desktop menu */
+.desktopmenu {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.desktopmenu a { cursor: pointer; text-decoration: none; }
+
+.desktopmenu li {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  padding: 8px 14px;
+  border-radius: 2px;
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+.desktopmenu li::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 14px;
+  width: calc(100% - 28px);
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.desktopmenu a:hover li,
+.desktopmenu .active li { color: var(--cream); }
+.desktopmenu a:hover li::after,
+.desktopmenu .active li::after { transform: scaleX(1); }
+
+/* Right group */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid rgba(200, 149, 58, 0.25);
+  border-radius: 2px;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.theme-toggle:hover {
+  background: rgba(200, 149, 58, 0.08);
+  border-color: var(--gold);
+  transform: rotate(20deg);
+}
+
+/* Hire Me button */
+.nav-cta {
+  padding: 9px 22px;
+  background: transparent;
+  color: var(--gold-light);
+  border: 1px solid rgba(200, 149, 58, 0.4);
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+.nav-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  transform: translateX(-101%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
+}
+
+.nav-cta:hover { color: var(--bg-primary); border-color: var(--gold-light); }
+.nav-cta:hover::before { transform: translateX(0); }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.ham {
+  width: 26px;
+  height: 1.5px;
+  background: var(--cream);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.activeham .ham:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.activeham .ham:nth-child(2) { opacity: 0; transform: translateX(-8px); }
+.activeham .ham:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile menu */
+.mobilemenu {
+  position: absolute;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  background: rgba(5, 8, 15, 0.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(200, 149, 58, 0.1);
+  transform: translateY(-10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  flex-direction: column;
+  display: flex;
+  list-style: none;
+  padding: 24px 6vw 32px;
+  gap: 4px;
+}
+
+.activemobile { transform: translateY(0); opacity: 1; pointer-events: all; }
+
+.mobilemenu a { text-decoration: none; }
+.mobilemenu li {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(200, 149, 58, 0.07);
+  transition: color 0.25s, padding-left 0.25s;
+  cursor: pointer;
+}
+.mobilemenu li:hover { color: var(--gold-light); padding-left: 8px; }
+
+.mobile-theme-row { border-bottom: none !important; padding-top: 20px !important; }
+
+.theme-toggle-mobile {
+  background: transparent;
+  border: 1px solid rgba(200, 149, 58, 0.25);
+  border-radius: 2px;
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  padding: 10px 16px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+@media (max-width: 750px) {
+  .desktopmenu { display: none; }
+  .nav-right .nav-cta { display: none; }
+  .hamburger { display: flex; }
+}

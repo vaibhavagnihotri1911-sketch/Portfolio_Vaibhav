@@ -1,0 +1,252 @@
+/* =========================================
+   CARD COMPONENT — Dark Luxury Editorial
+   ========================================= */
+
+.card {
+  width: 90%;
+  max-width: 320px;
+  min-height: 180px;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 21, 32, 0.9) 0%,
+    rgba(10, 14, 22, 0.95) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 149, 58, 0.12);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 24px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+}
+
+/* Top-left corner accent line */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+/* Bottom shimmer sweep on hover */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    rgba(200, 149, 58, 0.04) 60%,
+    transparent 80%
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(200, 149, 58, 0.4);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(200, 149, 58, 0.1),
+    inset 0 1px 0 rgba(200, 149, 58, 0.15);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover::after {
+  transform: translateX(200%) skewX(-15deg);
+}
+
+/* ---- IMAGE BOX ---- */
+.img-box {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.img-box img {
+  max-height: 100%;
+  max-width: 80px;
+  object-fit: contain;
+  filter: brightness(0.85) saturate(0.7);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 0.4s ease;
+}
+
+.card:hover .img-box img {
+  transform: scale(1.1) translateY(-4px);
+  filter: brightness(1.05) saturate(1) drop-shadow(0 4px 16px rgba(200, 149, 58, 0.4));
+}
+
+/* ---- CARD CONTENT ---- */
+.card-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* Card title */
+.card h1,
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--cream);
+  margin: 0 0 6px 0;
+  background: none;
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  transition: color 0.3s ease;
+}
+
+.card:hover h1,
+.card:hover .card-title {
+  color: var(--gold-light);
+}
+
+/* Subtitle / tech type */
+.card-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.3s;
+}
+
+.card:hover .card-subtitle {
+  color: var(--gold);
+}
+
+/* Tag badge inside card */
+.card-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid rgba(200, 149, 58, 0.2);
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 10px;
+  transition: var(--transition-fast);
+}
+
+.card:hover .card-tag {
+  background: rgba(200, 149, 58, 0.08);
+  border-color: rgba(200, 149, 58, 0.5);
+}
+
+/* ---- CARD GRID / CONTAINER ---- */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  width: 100%;
+  padding: 20px 0;
+}
+
+/* Cards section wrapper */
+.cards-section {
+  width: 100%;
+  padding: 80px 6vw;
+  position: relative;
+}
+
+.cards-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(200, 149, 58, 0.08);
+}
+
+.cards-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1.1;
+}
+
+.cards-section-count {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+/* ---- FEATURED / WIDE CARD variant ---- */
+.card.featured {
+  max-width: 100%;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  min-height: 140px;
+  padding: 28px 32px;
+}
+
+.card.featured .img-box {
+  width: 80px;
+  height: 60px;
+  flex-shrink: 0;
+  margin-bottom: 0;
+}
+
+.card.featured .card-content {
+  flex: 1;
+}
+
+.card.featured h1 {
+  font-size: 1.2rem;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 600px) {
+  .card {
+    max-width: 100%;
+  }
+
+  .cards-section {
+    padding: 60px 5vw;
+  }
+
+  .card.featured {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .card.featured .img-box {
+    width: 100%;
+  }
+}
